@@ -13,9 +13,9 @@ console.log(checkForName);
 alert("I EXIST")
 console.log("CHANGE!!");
 
-//TODO added export statements
-/*export {
+
+//added export statements
+export {
     checkForName,
     handleSubmit
    }
-*/
