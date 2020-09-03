@@ -13,7 +13,7 @@ module.exports = {
     output: {
         libraryTarget: 'var',
         library: 'Client'
-    }
+    },
     optimization: {
         minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
