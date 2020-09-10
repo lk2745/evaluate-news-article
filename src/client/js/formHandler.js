@@ -5,7 +5,7 @@
     const response = await fetch(url, {
       method: "POST",
       credentials: "same-origin",
-      mode: 'no-cors',
+      mode: 'cors',
       headers: {
         "Content-Type": "application/json",
       },
@@ -30,14 +30,12 @@ function handleSubmit(event) {
     console.log("::: Form Submitted :::")
     
     postData('http://localhost:8081/meaningCloud', {url: formText})
-    .then(res => res.json())
     .then(function(res) {
-        const getData = Object.getData(res);
-        document.getElementById('polarity').innerHTML = `Polarity: ${getData.score_tag}`;
-        document.getElementById("agreement").innerHTML = `Agreement: ${getData.agreement}`;
-        document.getElementById("subjectivity").innerHTML = `Subjectivity: ${getData.subjectivity}`;
-        document.getElementById("confidence").innerHTML = `Confidence: ${getData.confidence}`;
-        document.getElementById("irony").innerHTML = `Irony: ${getData.irony}`;
+        document.getElementById('polarity').innerHTML = `Polarity: ${res.score_tag}`;
+        document.getElementById("agreement").innerHTML = `Agreement: ${res.agreement}`;
+        document.getElementById("subjectivity").innerHTML = `Subjectivity: ${res.subjectivity}`;
+        document.getElementById("confidence").innerHTML = `Confidence: ${res.confidence}`;
+        document.getElementById("irony").innerHTML = `Irony: ${res.irony}`;
     })
 }
 

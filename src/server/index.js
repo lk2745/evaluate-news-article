@@ -4,7 +4,7 @@ dotenv.config();
 
 var path = require('path')
 const apiKey = process.env.API_KEY
-console.log(`Your API Key is $process.env.API_KEY`);
+console.log(`Your API Key is ${process.env.API_KEY}`);
 let entryUrl = [];
 const fetch = require('node-fetch');
 
@@ -26,8 +26,8 @@ app.use(express.static('dist'))
 console.log(__dirname)
 
 app.get('/', function (req, res) {
-    //res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('src/client/views/index.html'))
+    res.sendFile('dist/index.html')
+    //res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 // designates what port the app will listen to for incoming requests
@@ -51,8 +51,9 @@ app.post('/meaningCloud', addMeaning);
         const response = await fetch(apiUrl)
         const meaningdata = await response.json()
         const projectData = {
-            scoretag : meaningdata.score_tag,
+            score_tag : meaningdata.score_tag,
             agreement : meaningdata.agreement,
+            subjectivity : meaningdata.subjectivity,
             confidence : meaningdata.confidence,
             irony : meaningdata.irony
         }
