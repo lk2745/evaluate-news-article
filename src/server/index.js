@@ -16,7 +16,6 @@ const app = express()
 // Cors for cross origin allowance - allows the browser and server to communicate without any security interruptions
 const cors = require('cors');
 
-const e = require('express');
 app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -25,14 +24,18 @@ app.use(express.static('dist'))
 
 console.log(__dirname)
 
+app.options('*', cors())
+
+
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
     //res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('MeaningCloud app listening on port 8081!')
+//Running on port 8082 instead of 8081 because of conflict with other application
+app.listen(8082, function () {
+    console.log('MeaningCloud app listening on port 8082!')
 })
 
 app.get('/test', function (req, res) {

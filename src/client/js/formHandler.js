@@ -1,4 +1,4 @@
-  
+
   /* Function to POST data */
   const postData = async (url = "", data = {}) => {
     console.log("postData Function running", data);
@@ -25,18 +25,23 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('url').value
-    Client.checkForName(formText)
-
-    console.log("::: Form Submitted :::")
+    /*Client.checkForName(formText)*/
+    if(Client.validURL(formText)){
+      // if URL valid
+      console.log("::: Form Submitted :::")
     
-    postData('http://localhost:8081/meaningCloud', {url: formText})
-    .then(function(res) {
-        document.getElementById('polarity').innerHTML = `Polarity: ${res.score_tag}`;
-        document.getElementById("agreement").innerHTML = `Agreement: ${res.agreement}`;
-        document.getElementById("subjectivity").innerHTML = `Subjectivity: ${res.subjectivity}`;
-        document.getElementById("confidence").innerHTML = `Confidence: ${res.confidence}`;
-        document.getElementById("irony").innerHTML = `Irony: ${res.irony}`;
-    })
+      //Running on port 8082 instead of 8081 because of conflict with other application
+      postData('http://localhost:8082/meaningCloud', {url: formText})
+      .then(function(res) {
+          document.getElementById('polarity').innerHTML = `Polarity: ${res.score_tag}`;
+          document.getElementById("agreement").innerHTML = `Agreement: ${res.agreement}`;
+          document.getElementById("subjectivity").innerHTML = `Subjectivity: ${res.subjectivity}`;
+          document.getElementById("confidence").innerHTML = `Confidence: ${res.confidence}`;
+          document.getElementById("irony").innerHTML = `Irony: ${res.irony}`;
+      })
+    } else {
+      alert("Invalid URL: Re-enter a valid URL.");
+    }  
 }
 
 export { handleSubmit}
