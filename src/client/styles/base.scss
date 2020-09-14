@@ -6,12 +6,17 @@ body {
 
 main {
     flex: 2;
+    background-color: darkgray;
 }
 
 section {
     max-width: 800px;
     margin: 50px auto;
 }
+.results {
+    padding: 8px;
+}
+
 .standout{
     color: red;
     font-weight: bolder;
