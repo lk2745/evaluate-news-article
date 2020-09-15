@@ -18,7 +18,7 @@ MeaningCloud API output
 
 ## Description of Project Installation and Configuration
 
-### Step 1Clone Directory
+### Step 1 Clone Directory
   
 ### Step 2 Change to project folder
 `cd` into your new folder 
