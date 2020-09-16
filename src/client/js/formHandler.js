@@ -25,7 +25,7 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('url').value
-    /*Client.checkForName(formText)*/
+    
     if(Client.validURL(formText)){
       // if URL valid
       console.log("::: Form Submitted :::")

@@ -34,6 +34,8 @@ MeaningCloud API output
 `npm i -D html-webpack-plugin`
 `npm i -D mini-css-extract-plugin`
 `npm i -D optimize-css-assets-webpack-plugin terser-webpack-plugin`
+`npm install url-loader file-loader --sav-dev`
+
 
 I had to update webpack based on interdependencing with other installs.
 `npm install webpack@4.36.0`
@@ -77,14 +79,17 @@ Ran the jest test for the overall functionality of the handleSubmit function.
 > example-project@1.0.0 test C:\Users\lk2745\Documents\Training\Front End Developer\Projects\evaluate-news-article
 > jest
 
+
  PASS  __test__/testFormHandler.spec.js
   Testing the submit functionality
     √ Testing the handleSubmit() function (2 ms)
+  Testing the url validation functionality
+    √ Testing the validURL() function
 
 Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+Tests:       2 passed, 2 total
 Snapshots:   0 total
-Time:        3.885 s
+Time:        4.134 s
 Ran all test suites.
 
 
